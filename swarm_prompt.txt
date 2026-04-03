@@ -1,0 +1,23 @@
+Run swarm:
+Requirement: Database Schema and Connection - Create SQLite database with notes table (id, title, content, created_at, updated_at). Implement connection manager with proper initialization and migration handling.
+
+**Acceptance Criteria:**
+
+* notes table created in notes.db.
+* Schema supports id (INTEGER PRIMARY KEY), title (TEXT), content (TEXT), timestamps.
+* Connection manager handles initialization and provides get_connection().
+Mode: build
+Constraints:
+  - MANDATORY PIPELINE: SDD -> TDD -> Implement -> Security Scan -> Critic Review.
+  - PLANNER: MUST generate `docs/spec/ZOC-116.md`.
+  - CODER: MUST write failing tests first (Red), then passing tests (Green), with test logs in output.
+  - SECURITY: MUST run local SAST/dependency checks and output `reports/security_scan.txt`; remediate High/Critical findings.
+  - CWD: Strictly locked to /app/workspace/ZOC-116/repo.
+  - EXECUTION DISCIPLINE: Do the actual file edits first. Do NOT return status-only messages like "started"/"launched" without producing artifacts.
+Hard Output Contract (required before completion):
+  1) `docs/spec/ZOC-116.md`
+  2) `reports/security_scan.txt`
+  3) For Architect tickets: `docs/architecture/SYSTEM_DESIGN.md` and `docs/architecture/API_CONTRACTS.md`
+  4) Git commits on branch `ZOC-116`
+  5) PR creation via `gh pr create` and PR URL
+  - If unable to satisfy all required outputs, STOP and return explicit failure reason.
