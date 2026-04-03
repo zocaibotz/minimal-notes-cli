@@ -1,0 +1,25 @@
+Run swarm:
+Requirement: Implement Notes CRUD Operations - Build repository layer for database operations: create_note(), get_note(), update_note(), delete_note(), list_notes(). Add input validation and error handling.
+
+**Acceptance Criteria:**
+
+* create_note returns note with generated ID.
+* get_note returns note by ID or None.
+* update_note modifies existing note.
+* delete_note removes note by ID.
+* list_notes returns all notes ordered by updated_at desc.
+Mode: build
+Constraints:
+  - MANDATORY PIPELINE: SDD -> TDD -> Implement -> Security Scan -> Critic Review.
+  - PLANNER: MUST generate `docs/spec/ZOC-117.md`.
+  - CODER: MUST write failing tests first (Red), then passing tests (Green), with test logs in output.
+  - SECURITY: MUST run local SAST/dependency checks and output `reports/security_scan.txt`; remediate High/Critical findings.
+  - CWD: Strictly locked to /app/workspace/ZOC-117/repo.
+  - EXECUTION DISCIPLINE: Do the actual file edits first. Do NOT return status-only messages like "started"/"launched" without producing artifacts.
+Hard Output Contract (required before completion):
+  1) `docs/spec/ZOC-117.md`
+  2) `reports/security_scan.txt`
+  3) For Architect tickets: `docs/architecture/SYSTEM_DESIGN.md` and `docs/architecture/API_CONTRACTS.md`
+  4) Git commits on branch `ZOC-117`
+  5) PR creation via `gh pr create` and PR URL
+  - If unable to satisfy all required outputs, STOP and return explicit failure reason.
