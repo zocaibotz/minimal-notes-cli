@@ -1,0 +1,25 @@
+Run swarm:
+Requirement: CLI Commands Implementation - Implement CLI using Click: 'add <title>' creates note, 'list' shows all, 'get <id>' shows one, 'update <id> --title/--content' modifies, 'delete <id>' removes. Add help messages and proper exit codes.
+
+**Acceptance Criteria:**
+
+* 'notes add "My Title" "My content"' creates note.
+* 'notes list' outputs all notes as table.
+* 'notes get <id>' displays single note.
+* 'notes update <id> --title "New"' modifies note.
+* 'notes delete <id>' removes note with confirmation.
+Mode: build
+Constraints:
+  - MANDATORY PIPELINE: SDD -> TDD -> Implement -> Security Scan -> Critic Review.
+  - PLANNER: MUST generate `docs/spec/ZOC-118.md`.
+  - CODER: MUST write failing tests first (Red), then passing tests (Green), with test logs in output.
+  - SECURITY: MUST run local SAST/dependency checks and output `reports/security_scan.txt`; remediate High/Critical findings.
+  - CWD: Strictly locked to /app/workspace/ZOC-118/repo.
+  - EXECUTION DISCIPLINE: Do the actual file edits first. Do NOT return status-only messages like "started"/"launched" without producing artifacts.
+Hard Output Contract (required before completion):
+  1) `docs/spec/ZOC-118.md`
+  2) `reports/security_scan.txt`
+  3) For Architect tickets: `docs/architecture/SYSTEM_DESIGN.md` and `docs/architecture/API_CONTRACTS.md`
+  4) Git commits on branch `ZOC-118`
+  5) PR creation via `gh pr create` and PR URL
+  - If unable to satisfy all required outputs, STOP and return explicit failure reason.
